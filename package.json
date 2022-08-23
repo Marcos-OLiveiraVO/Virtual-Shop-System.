@@ -1,0 +1,35 @@
+{
+  "name": "api-escalavel-com-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npm run build && node dist/server.js",
+    "start:dev": "babel-node src/server.js",
+    "test:integration": "NODE_ENV=test mocha --config=test/integration/.mocharc.json  test/integration/**/*_spec.js --node-env=test ",
+    "test:unit": "NODE_ENV=test mocha  --config=test/integration/.mocharc.json test/unit/**/*_spec.js --node-env=test",
+    "test": "npm run test:unit && npm run test:integration"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.17.7",
+    "sinon": "^7.5.0"
+  },
+  "dependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "config": "^1.29.4",
+    "express": "^4.18.1",
+    "mocha": "^10.0.0",
+    "mongoose": "^5.7.13",
+    "request": "^2.88.2",
+    "supertest": "^6.2.3"
+  }
+}
