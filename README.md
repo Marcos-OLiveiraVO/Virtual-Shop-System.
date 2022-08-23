@@ -1,12 +1,12 @@
 # Virtual-Shop-API
 
-<h3> API De uma loja virtual com a aquisição de produtos, atualizações, e excluir o produto </h3>
+<h3> API De uma loja virtual com a aquisição de produtos, atualizações, Busca por ID, e a remoção do produto. </h3>
 
 
 <h4>a API segue o metodo de desenvolvimento guiado por testes(TDD) e por comportamento (BDD) Para ter uma melhor qualidade de codigo e segurança da aplicação com a
 utilização do mocha como TesteRunner.</h4>
 
-<h3> Funcionalides: </h3>
+<h3> Funcionalidades: </h3>
 
 - Criação do produto 
 - Atualizar o produto
