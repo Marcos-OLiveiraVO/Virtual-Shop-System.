@@ -1,7 +1,7 @@
 # Virtual-Shop-API
 
 <h3> API De uma loja virtual com a aquisição de produtos, atualizações, Busca por ID, e a remoção do produto,  
-alem da criação e autenticação da conta de usuario. </h3>
+alem da criação e autenticação da conta do usuario. </h3>
 
 
 
