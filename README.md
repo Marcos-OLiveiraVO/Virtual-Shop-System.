@@ -8,7 +8,7 @@ alem da criação e autenticação da conta do usuario. </h3>
 utilização do mocha como TesteRunner.</h4>
 
 <h5> A segurança em relação aos dados do usuario foi feita utilizando JWT e o Modulo Bcript. </h5>
-<h5> A autenticação foi feita usando JWT. </h5>
+<h5> A autenticação do usuario foi feita utilizando JWT. </h5>
 
 <h3> Funcionalidades: </h3>
 
