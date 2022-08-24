@@ -4,9 +4,10 @@
 alem da criação e autenticação da conta do usuario. </h3>
 
 
-
 <h4>a API segue o metodo de desenvolvimento guiado por testes(TDD) e por comportamento (BDD) Para ter uma melhor qualidade de codigo e segurança da aplicação com a
 utilização do mocha como TesteRunner.</h4>
+
+<h5> A segurança em relação aos dados do usuario foi feita utilizando JWT e o Modulo Bcript.
 
 <h3> Funcionalidades: </h3>
 
