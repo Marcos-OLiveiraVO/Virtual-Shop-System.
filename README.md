@@ -14,6 +14,7 @@ utilização do mocha como TesteRunner.</h4>
 - Atualizar o produto
 - Excluir o produto
 - Busca por ID
+- Criação da conta de usuario
 
 <h3> Utilizando os testes:</h3>
 
