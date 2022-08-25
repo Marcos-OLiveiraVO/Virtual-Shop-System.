@@ -38,25 +38,26 @@ class UsersController {
 
   async update(req, res) {
     const body = req.body;
-    const user = this.User.findById(req.params.id);
+    try {
+      const user = await this.User.findById(req.params.id);
 
-    user.name = body.name;
-    user.email = body.email;
-    user.role = body.role;
-    if (body.password) {
-      user.password = body.password;
+      user.name = body.name;
+      user.email = body.email;
+      user.role = body.role;
+      if (body.password) {
+        user.password = body.password;
+      }
+
+      await user.save();
+      res.sendStatus(200);
+    } catch (err) {
+      res.status(422).send(err.message);
     }
-    await user.save();
-
-    res.sendStatus(200);
-  }
-  catch(err) {
-    res.status(422).send(err.message);
   }
 
   async remove(req, res) {
     try {
-      await this.user.deleteOne({ _id: req.params.id });
+      await this.User.deleteOne({ _id: req.params.id });
       res.sendStatus(204);
     } catch (err) {
       res.status(400).send(err.message);

@@ -125,29 +125,3 @@ describe("Routes: Products", () => {
     });
   });
 });
-
-//Como a maioria dos testes precisará de um produto,
-//tanto para inserir quanto para verificar nas buscas,
-//criamos uma constante chamada defaultProduct para ser reusada pelos casos de teste.
-//O próximo passo é descrever a nossa primeira suíte de testes:
-
-//Adicionamos mais um describe para deixar claro que todas as
-//suítes de teste dentro dele fazem parte do método http GET na rota /products.
-//Isso facilita a legibilidade do teste e deixa a saída do terminal mais clara.
-
-//A função it também é uma global do Mocha e é responsável por descrever um caso de teste.
-//Descrições de casos de teste seguem um padrão declarativo,
-//como no exemplo acima: “Isso deve retornar uma lista de produtos”.
-//Note que também é passado um parâmetro chamado done para o caso de teste,
-//isso ocorre porque testes que executam funções assíncronas, como requisições http,
-//precisam informar ao Mocha quando o teste finalizou e fazem isso chamando a função done.
-//Vejamos na implementação a seguir:
-
-//Na implementação do teste usamos o supertest que exportamos globalmente como request no helpers.js.
-//O supertest nos permite fazer uma requisição http para uma determinada rota e verificar a sua resposta.
-//Quando a requisição terminar a função end será chamada pelo supertest e vai receber a resposta ou um erro,
-//caso ocorra. No exemplo acima é verificado se
-//o primeiro elemento da lista de produtos retornada é igual ao nosso defaultProduct.
-//O expect usado para fazer a asserção faz parte do Chai e foi exposto globalmente no helpers.js.
-//Para finalizar, notificamos o Mocha que o teste finalizou chamando a função done que recebe err como parâmetro,
-//caso algum erro ocorra ele irá mostrar a mensagem de erro no terminal.

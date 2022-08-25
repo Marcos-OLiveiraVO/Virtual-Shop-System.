@@ -1,9 +1,11 @@
 {
   "diff": true,
   "require": ["@babel/register"],
+  "require-test": ["test/integration/helpers.js test/integration/global.js"],
   "extension": ["js", "cjs", "mjs"],
-  "package": "./package.json",
   "reporter": "spec",
+  "package": "./package.json",
   "slow": "5000",
+  "timeout": "5000",
   "recursive": "true"
 }

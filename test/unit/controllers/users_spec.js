@@ -87,13 +87,13 @@ describe("Controller: Users", () => {
         };
 
         class fakeUser {
-          Save() {}
+          save() {}
         }
 
-        response.withArgs(201).returns(response);
+        response.status.withArgs(201).returns(response);
         sinon.stub(fakeUser.prototype, "save").withArgs().resolves();
 
-        const usersController = new usersController(fakeUser);
+        const usersController = new UsersController(fakeUser);
 
         await usersController.create(requestWithBody, response);
         sinon.assert.calledWith(response.send);
@@ -111,7 +111,7 @@ describe("Controller: Users", () => {
           save() {}
         }
 
-        response.withArgs(422).returns(response);
+        response.status.withArgs(422).returns(response);
         sinon
           .stub(fakeUser.prototype, "save")
           .withArgs()
@@ -119,7 +119,7 @@ describe("Controller: Users", () => {
 
         const usersController = new UsersController(fakeUser);
 
-        await usersController.create(requestWithBody, response);
+        await usersController.create(defaultRequest, response);
         sinon.assert.calledWith(response.status, 422);
       });
     });
@@ -138,6 +138,7 @@ describe("Controller: Users", () => {
 
         const request = {
           params: { id: fakeId },
+          body: updatedUser,
         };
 
         const response = {
@@ -177,6 +178,7 @@ describe("Controller: Users", () => {
 
         const request = {
           params: { id: fakeId },
+          body: updatedUser,
         };
 
         const response = {
@@ -212,11 +214,11 @@ describe("Controller: Users", () => {
         };
 
         class fakeUser {
-          static remove() {}
+          static deleteOne() {}
         }
 
-        const removeStub = sinon.stub(fakeUser, "remove");
-        removeStub.withArgs({ _id: fakeId }).resolves([1]);
+        const deleteOneStub = sinon.stub(fakeUser, "deleteOne");
+        deleteOneStub.withArgs({ _id: fakeId }).resolves([1]);
 
         const usersController = new UsersController(fakeUser);
 
@@ -228,7 +230,6 @@ describe("Controller: Users", () => {
     context("when an error occurs", () => {
       it("should return 400", async () => {
         const fakeId = "a-fake-id";
-
         const request = {
           params: { id: fakeId },
         };
@@ -239,11 +240,11 @@ describe("Controller: Users", () => {
         };
 
         class fakeUser {
-          static remove() {}
+          static deleteOne() {}
         }
 
-        const removeStub = sinon.stub(fakeUser, "remove");
-        removeStub.withArgs({ _id: fakeId }).rejects({ message: "Error" });
+        const deleteOneStub = sinon.stub(fakeUser, "deleteOne");
+        deleteOneStub.withArgs({ _id: fakeId }).rejects({ message: "Error" });
         response.status.withArgs(400).returns(response);
 
         const usersController = new UsersController(fakeUser);
