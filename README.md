@@ -1,8 +1,8 @@
 # Virtual-Shop-API
 
 ## :memo: Descrição
-<h3> API de uma loja virtual com a aquisição de produtos, atualizações, Busca por ID, e a remoção do produto,  
-alem da criação e autenticação da conta do usuario. </h3>
+<h3> Api de uma loja virtual com a aquisição de produtos, atualizações, Busca por ID, e a remoção do produto,  
+alem da criação e Controle de acesso com autenticação da conta do usuario. </h3>
 
 
 <h4>a API segue o metodo de desenvolvimento guiado por testes(TDD) e por comportamento (BDD) Para ter uma melhor qualidade de codigo e segurança da aplicação com a
