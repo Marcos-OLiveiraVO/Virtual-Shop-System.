@@ -23,6 +23,7 @@
     "sinon": "^7.5.0"
   },
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "config": "^1.29.4",
