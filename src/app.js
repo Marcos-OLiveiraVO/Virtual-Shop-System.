@@ -1,7 +1,8 @@
 import express from "express";
-import router from "./routes";
+import routes from "./routes";
 import database from "./database";
 import acl from "express-acl";
+import authMiddleware from "./middlewares/auth";
 
 const app = express();
 
@@ -12,8 +13,9 @@ acl.config({
 
 const configureExpress = () => {
   app.use(express.json());
+  app.use(authMiddleware);
   app.use(acl.authorize.unless({ path: ["/users/authenticate"] }));
-  app.use("/", router);
+  app.use("/", routes);
   app.database = database;
 
   return app;

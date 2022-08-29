@@ -1,5 +1,10 @@
 {
   "database": {
     "mongoUrl": "mongodb://localhost:27017/shop"
+  },
+
+  "auth": {
+    "key": "thisisaverysecurekey",
+    "tokenExpireIn": "7d"
   }
 }
