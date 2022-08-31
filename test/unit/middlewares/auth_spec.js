@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import config from "config";
 
 describe("AuthMiddleware", () => {
-  it("should verify jwt token and call the next middleware", (done) => {
+  it("should verify a jwt token and call the next middleware", (done) => {
     const jwtToken = jwt.sign({ data: "fake" }, config.get("auth.key"));
 
     const reqFake = {

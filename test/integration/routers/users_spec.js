@@ -1,8 +1,25 @@
 import UsersController from "../../../src/controllers/users";
 import sinon from "sinon";
+import chai, { expect, request } from "chai";
+import supertest from "supertest";
+import setupApp from "../../../src/app";
 import User from "../../../src/models/user";
 
+global.setupApp = setupApp;
+global.supertest = supertest;
+global.expect = chai.expect;
+
 describe("Controller: Users", () => {
+  let request;
+  let app;
+
+  before(async () => {
+    app = await setupApp();
+    request = supertest(app);
+  });
+
+  after(async () => await app.database.connection.close());
+
   const defaultUser = [
     {
       __v: 0,
@@ -247,6 +264,37 @@ describe("Controller: Users", () => {
 
         await usersController.remove(request, response);
         sinon.assert.calledWith(response.send, "Error");
+      });
+    });
+  });
+
+  describe("POST /users/authenticate", () => {
+    context("when authenticating an user", () => {
+      it("should generate a valid token", (done) => {
+        request
+          .post(`/users/authenticate`)
+          .send({
+            email: "jhon@mail.com",
+            password: "123password",
+          })
+          .end((err, res) => {
+            expect(res.body).to.have.key("token");
+            expect(res.status).to.eql(200);
+            done(err);
+          });
+      });
+
+      it("should return unauthorized when the password does not match", (done) => {
+        request
+          .post(`/users/authenticate`)
+          .send({
+            email: "jhon@mail.com",
+            password: "wrongpassword",
+          })
+          .end((err, res) => {
+            expect(res.status).to.eql(401);
+            done(err);
+          });
       });
     });
   });
