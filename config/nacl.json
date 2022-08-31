@@ -1,18 +1,22 @@
 [
   {
     "group": "admin",
-    "permissions": {
-      "resource": "*",
-      "methods": "*",
-      "action": "allow"
-    }
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
   },
   {
     "group": "user",
-    "permissions": {
-      "resource": "products",
-      "methods": ["GET"],
-      "action": "allow"
-    }
+    "permissions": [
+      {
+        "resource": "products",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
   }
 ]
