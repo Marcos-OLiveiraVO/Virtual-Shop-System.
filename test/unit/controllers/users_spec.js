@@ -284,10 +284,9 @@ describe("Controller: Users", () => {
           userWithEncryptedPassword,
           config.get("auth.key"),
           {
-            expiresIn: config.get("auth.tokenExpiresIn"),
+            expiresIn: config.get("auth.tokenExpireIn"),
           }
         );
-
         const fakeReq = {
           body: user,
         };
@@ -299,6 +298,68 @@ describe("Controller: Users", () => {
         const usersController = new UsersController(fakeUserModel);
         await usersController.authenticate(fakeReq, fakeRes);
         sinon.assert.calledWith(fakeRes.send, { token: jwtToken });
+      });
+
+      it("should return 401 when the user cant not be found", async () => {
+        const fakeUserModel = {
+          findOne: sinon.stub(),
+        };
+        fakeUserModel.findOne.resolves(null);
+
+        const user = {
+          name: "Jhon Doe",
+          email: "jhondoe@mail.com",
+          password: "12345",
+          role: "admin",
+        };
+
+        const fakeReq = {
+          body: user,
+        };
+
+        const fakeRes = {
+          sendStatus: sinon.spy(),
+        };
+
+        const usersController = new UsersController(fakeUserModel);
+
+        await usersController.authenticate(fakeReq, fakeRes);
+        sinon.assert.calledWith(fakeRes.sendStatus, 401);
+      });
+
+      it("should return 401 when the password does not match", async () => {
+        const fakeUserModel = {
+          findOne: sinon.stub(),
+        };
+
+        const user = {
+          name: "Jhon Doe",
+          email: "jhondoe@mail.com",
+          password: "12345",
+          role: "admin",
+        };
+
+        const userWithDifferentPassword = {
+          ...user,
+          password: bcrypt.hashSync("another_password", 10),
+        };
+
+        fakeUserModel.findOne.withArgs({ email: user.email }).resolves({
+          ...userWithDifferentPassword,
+        });
+
+        const fakeReq = {
+          body: user,
+        };
+
+        const fakeRes = {
+          sendStatus: sinon.spy(),
+        };
+
+        const usersController = new UsersController(fakeUserModel);
+
+        await usersController.authenticate(fakeReq, fakeRes);
+        sinon.assert.calledWith(fakeRes.sendStatus, 401);
       });
     });
   });
