@@ -2,6 +2,8 @@ import AuthService from "../../../src/services/auth";
 import bcrypt from "bcrypt";
 import Util from "util";
 import sinon from "sinon";
+import jwt from "jsonwebtoken";
+import config from "config";
 
 const hashSync = Util.promisify(bcrypt.hash);
 
@@ -41,15 +43,30 @@ describe("Service: Auth", () => {
         findOne: sinon.stub(),
       };
 
-      fakeUserModel.findOne.withArgs({
+      fakeUserModel.findOne.resolves({
         email: user.email,
-        password: "'aFakeHashedPass",
+        password: "aFakeHashedPassword",
       });
 
-      const authService = new AuthService(user);
+      const authService = new AuthService(fakeUserModel);
       const response = await authService.authenticate(user);
 
       expect(response).to.be.false;
+    });
+  });
+
+  context("generateToken", () => {
+    it("should generate a JWT token from a payload", () => {
+      const payload = {
+        name: "John",
+        email: "jhondoe@mail.com",
+        password: "12345",
+      };
+      const expectedToken = jwt.sign(payload, config.get("auth.key"), {
+        expiresIn: config.get("auth.tokenExpiresIn"),
+      });
+      const generatedToken = AuthService.generateToken(payload);
+      expect(generatedToken).to.eql(expectedToken);
     });
   });
 });

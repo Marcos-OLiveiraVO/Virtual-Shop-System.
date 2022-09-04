@@ -4,6 +4,7 @@ import chai, { expect, request } from "chai";
 import supertest from "supertest";
 import setupApp from "../../../src/app";
 import User from "../../../src/models/user";
+import AuthService from "../../../src/services/auth";
 
 global.setupApp = setupApp;
 global.supertest = supertest;
@@ -19,6 +20,15 @@ describe("Controller: Users", () => {
   });
 
   after(async () => await app.database.connection.close());
+
+  const expectedAdminUser = {
+    _id: defaultId,
+    name: "Jhon doe",
+    email: "jhon@mail.com",
+    role: "admin",
+  };
+
+  const authToken = AuthService.generateToken(expectedAdminUser);
 
   const defaultUser = [
     {

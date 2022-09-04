@@ -1,6 +1,6 @@
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import config from "config";
-import bcrypt from "bcrypt";
 
 class UsersController {
   constructor(User, AuthService) {
@@ -89,7 +89,7 @@ class UsersController {
         expiresIn: config.get("auth.tokenExpireIn"),
       }
     );
-    res.send({ token });
+    return res.send({ token });
   }
 }
 

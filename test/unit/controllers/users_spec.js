@@ -259,9 +259,7 @@ describe("Controller: Users", () => {
 
     describe("authenticate()", async () => {
       it("should authenticate a user", async () => {
-        const fakeUserModel = {
-          findOne: sinon.stub(),
-        };
+        const fakeUserModel = {};
 
         const user = {
           name: "Jhon Doe",
@@ -300,7 +298,7 @@ describe("Controller: Users", () => {
         sinon.assert.calledWith(fakeRes.send, { token: jwtToken });
       });
 
-      it("should return 401 when the user cant not be found", async () => {
+      it("should return 401 when the user can not be found", async () => {
         const fakeUserModel = {
           findOne: sinon.stub(),
         };
