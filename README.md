@@ -52,7 +52,7 @@ Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando 
 ## :soon: Implementação futura
      Finalizado
 
-<h4> 🛠 Projeto está sendo desenvolvido utilizando as seguintes tecnologias: <h4>
+<h4> 🛠 Projeto foi desenvolvido utilizando as seguintes tecnologias: <h4>
 
     - Node
     - Express
@@ -64,4 +64,5 @@ Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando 
     - Sinon
     - TDD E BDD
     - Express ACL
+    - Bcrypt
 
