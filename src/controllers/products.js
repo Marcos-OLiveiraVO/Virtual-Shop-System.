@@ -24,10 +24,8 @@ class ProductsController {
       res.status(400).send(err.message);
     }
   }
-
   async create(req, res) {
     const product = new this.Product(req.body);
-
     try {
       await product.save();
       res.status(201).send(product);

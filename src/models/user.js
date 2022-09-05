@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   role: String,
 });
 
-schema.pre("save", async function (next) {
+schema.pre("save", async function(next) {
   if (!this.password || !this.isModified("password")) {
     return next();
   }
@@ -24,7 +24,7 @@ schema.pre("save", async function (next) {
 });
 
 schema.set("toJSON", {
-  transform: (doc, ret, options) => ({
+  transform: (doc, ret) => ({
     _id: ret._id,
     email: ret.email,
     name: ret.name,

@@ -5,15 +5,14 @@ import sinon from "sinon";
 import jwt from "jsonwebtoken";
 import config from "config";
 
-const hashSync = Util.promisify(bcrypt.hash);
+const hashAsync = Util.promisify(bcrypt.hash);
 
 describe("Service: Auth", () => {
-  context("authenticate", async () => {
+  context("authenticate", () => {
     it("should authenticate a user", async () => {
       const fakeUserModel = {
         findOne: sinon.stub(),
       };
-
       const user = {
         name: "John",
         email: "jhondoe@mail.com",
@@ -21,7 +20,7 @@ describe("Service: Auth", () => {
       };
 
       const authService = new AuthService(fakeUserModel);
-      const hashedPassword = await hashSync("12345", 10);
+      const hashedPassword = await hashAsync("12345", 10);
       const userFromDatabase = { ...user, password: hashedPassword };
 
       fakeUserModel.findOne
@@ -38,16 +37,13 @@ describe("Service: Auth", () => {
         email: "jhondoe@mail.com",
         password: "12345",
       };
-
       const fakeUserModel = {
         findOne: sinon.stub(),
       };
-
       fakeUserModel.findOne.resolves({
         email: user.email,
         password: "aFakeHashedPassword",
       });
-
       const authService = new AuthService(fakeUserModel);
       const response = await authService.authenticate(user);
 

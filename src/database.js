@@ -5,11 +5,9 @@ const mongodbUrl = config.get("database.mongoUrl");
 
 const connect = () =>
   mongoose.connect(mongodbUrl, {
-    useNewUrlParse: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-
-const close = () => mongoose.connection.close();
 
 export default {
   connect,
