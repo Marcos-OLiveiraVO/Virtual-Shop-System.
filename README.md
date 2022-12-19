@@ -1,8 +1,7 @@
 # Virtual-Shop-API
 
 ## :memo: Descrição
-<h4> Api de uma loja virtual com a aquisição de produtos, atualizações, busca por ID, e a remoção do produto,  
-alem da criação da conta de usuário e controle de acesso com autenticação da conta do usuario. </h4>
+<h4> Este projeto é uma loja virtual que permite aos usuários comprar produtos, ver atualizações, procurar produtos por ID e remover produtos do seu carrinho. Também inclui a criação de contas de usuário e controle de acesso com autenticação de usuário. </h4>
 
 
 <h4>A API segue o metodo de desenvolvimento guiado por testes(TDD) e por comportamento (BDD) para ter uma melhor qualidade de codigo e segurança da aplicação com a
