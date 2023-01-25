@@ -1,67 +1,71 @@
 # Virtual-Shop-API
 
-## :memo: Descrição
-<h4> Este projeto é uma loja virtual que permite aos usuários comprar produtos, ver atualizações, procurar produtos por ID e remover produtos do seu carrinho. Também inclui a criação de contas de usuário e controle de acesso com autenticação de usuário. </h4>
+## :memo: Description
+<h4> This project is an online store that allows users to purchase products, view updates, search for products by ID, and remove products from your cart. It also includes creating user accounts and controlling access with user authentication. </h4>
+
+<h4>The API follows the test-driven development method (TDD) and behavior-driven development (BDD) to have a better code quality and application security with the
+use of mocha as TesteRunner.</h4>
+<h5> The authentication token was made using JWT. </h5>
+<h5> The password was encrypted using the Bcript module. <h5>
+<h5> For user access control, Express - ACL was used. </h5>
 
 
-<h4>A API segue o metodo de desenvolvimento guiado por testes(TDD) e por comportamento (BDD) para ter uma melhor qualidade de codigo e segurança da aplicação com a
-utilização do mocha como TesteRunner.</h4>
-
-<h5> O token de autenticação foi feito usando o JWT. </h5>
-<h5> A senha foi criptografada usando o modulo Bcript. <h5>
-<h5> Para o controle de acesso do usuário foi usado o Express - ACL. </h5>
+## 📍 to do the tests : 
 
 
-## 📍 Para os Testes foi utilizado: 
-
-
-- Mocha foi utilizado para ser o TestRunner
-- Chai para asserções 
-- Supertest para requisições http 
+Mocha foi utilizado para ser o TestRunner
+Chai para asserções 
+Supertest para requisições http 
 
 
 
-## :books: Funcionalidades
+## :books: Features
+- Product creation
+- Update the product
+- Delete the product
+- Search by ID
+- Creation of user account
 
-- Criação do produto 
-- Atualizar o produto
-- Excluir o produto
-- Busca por ID
-- Criação da conta de usuario
 
-## :rocket: Rodando o projeto
-Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando para instalar as dependencias:
-      
-      npm install
+## :rocket: Running the project
+To run the repository it is necessary to clone it, give the following command to install the dependencies:
 
-<h3>✨ Utilizando os testes:</h3>
+       npm install
+ 
+<h3>✨ Using the tests:</h3>
 
-<h5> Testes de unidade: </h5>
+
+<h5> Unit tests: </h5>
+
 
       npm run test:unit
-      
-<h5> Testes de integração: </h5>
 
-     npm run test:integration
-     
-<h5> Testes de unidades + Integração: </h5>     
+
+<h5> Integration tests: </h5>
+
+
+      npm run test: integration
+
+ 
+<h5> Unit Testing + Integration: </h5>
+
 
       npm run test
-      
-## :soon: Implementação futura
-     Finalizado
 
-<h4> 🛠 Projeto foi desenvolvido utilizando as seguintes tecnologias: <h4>
+ 
+## :soon: Future implementation
+       Finished
+ 
+<h4> 🛠 Project was developed using the following technologies: <h4>
 
-    - Node
-    - Express
-    - JWT
-    - MongoDB 
-    - mongoose
-    - mocha
-    - SuperTest
-    - Sinon
-    - TDD E BDD
-    - Express ACL
-    - Bcrypt
-
+       - node
+       - express
+       - JWT
+       - MongoDB
+       - mongoose
+       - mocha
+       - SuperTest
+       - Sinon
+       - TDD AND BDD
+       - Express ACL
+       - Bcrypt
