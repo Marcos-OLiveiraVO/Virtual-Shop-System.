@@ -22,7 +22,7 @@ Supertest para requisições http
 ## :books: Features
 - Product creation.
 - Update the product.
-- Delete the product
+- Delete the product.
 - Search by ID
 - Creation of user account
 
