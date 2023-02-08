@@ -23,7 +23,7 @@ Supertest para requisições http
 - Product creation.
 - Update the product.
 - Delete the product.
-- Search by ID
+- Search by ID.
 - Creation of user account
 
 
