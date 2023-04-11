@@ -60,7 +60,7 @@ To run the repository it is necessary to clone it, give the following command to
 
        - node
        - express.
-       - JWT
+       - JWT.
        - MongoDB
        - mongoose
        - mocha
