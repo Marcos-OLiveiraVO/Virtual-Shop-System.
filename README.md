@@ -24,7 +24,7 @@ Supertest para requisições http
 - Update the product.
 - Delete the product.
 - Search by ID.
-- Creation of user account
+- Creation of user account.
 
 
 ## :rocket: Running the project
