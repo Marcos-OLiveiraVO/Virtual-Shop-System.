@@ -58,7 +58,7 @@ To run the repository it is necessary to clone it, give the following command to
  
 <h4> 🛠 Project was developed using the following technologies: <h4>
 
-       - node
+       - node.
        - express.
        - JWT.
        - MongoDB
